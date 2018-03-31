@@ -1,0 +1,27 @@
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: vodafone-fis
+    spec:
+      containers:
+        - 
+          resources:
+            requests:
+              cpu: 
+              memory: 
+            limits:
+              cpu: 
+              memory: 512Mi
+          env:
+          - name: MONGODB_SERVICE_NAME
+            value: mongodb-32-rhel7
+          - name: MONGODB_SERVICE_DATABASE
+            value: sampledb
+          - name: MONGODB_SERVICE_USERNAME
+            value: user
+          - name: MONGODB_SERVICE_PASSWORD
+            value: password
+          - name: JAVA_DIAGNOSTICS
+            value: true

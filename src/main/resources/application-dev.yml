@@ -1,0 +1,39 @@
+camel:
+  springboot:
+    # The Camel context name
+    name: FisRestMongo
+
+# Binding health checks to a different port
+management:
+  port: 8081
+
+server:
+  port: 8080
+
+# disable all management enpoints except health
+endpoints:
+  enabled: false
+  health:
+    enabled: true
+
+service:
+  mongodb:
+#     # The name of the service hosting the MySQL database server,
+#     # can be customized using the 'MYSQL_SERVICE_NAME' env variable to use a different service
+    name:     ${MONGODB_SERVICE_NAME}
+#     # The database to use, can be customized using the 'MYSQL_SERVICE_DATABASE' env variable
+    database: ${MONGODB_SERVICE_DATABASE}
+    username: ${MONGODB_SERVICE_USERNAME}
+    password: ${MONGODB_SERVICE_PASSWORD}
+ 
+
+# The application configuration properties
+quickstart:
+  generateOrderPeriod: 2s
+  processOrderPeriod: 5s
+
+apiContext: /api
+
+apidoc:
+  host: 0.0.0.0
+  port: ${server.port}
